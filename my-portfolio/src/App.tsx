@@ -5,7 +5,7 @@ import ContactSection from './components/ContactSection';
 
 export default function App() {
   return (
-    <div className="font-sans">
+    <div>
       <AboutSection />
       <ExperienceSection />
       <SkillSection />

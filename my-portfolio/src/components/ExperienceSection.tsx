@@ -2,7 +2,7 @@ import Section from './Section';
 
 export default function ExperienceSection() {
   return (
-    <Section id="experience" title="Experience">
+    <Section id="experience" title="Experience" className="bg-yellow-100">
       <div className="space-y-8 text-left">
         <div className="bg-white p-6 rounded-lg shadow">
           <h3 className="font-semibold">Software Engineer</h3>

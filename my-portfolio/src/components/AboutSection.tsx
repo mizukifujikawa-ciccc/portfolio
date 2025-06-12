@@ -2,7 +2,7 @@ import Section from './Section';
 
 export default function AboutSection() {
   return (
-    <Section id="about" title="About Me" className="bg-gray-50">
+    <Section id="about" title="About Me" className="bg-pink-100">
       <img
         src="/profile.svg"
         alt="Profile"

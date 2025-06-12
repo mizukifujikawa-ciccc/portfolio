@@ -16,11 +16,11 @@ export default function SkillSection() {
   ];
 
   return (
-    <Section id="skill" title="Skill" className="bg-gray-50">
+    <Section id="skill" title="Skill" className="bg-blue-100">
       <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {skills.map((skill) => (
-          <li key={skill.name} className="flex flex-col items-center">
-            <img src={skill.img} alt={skill.name} className="w-12 h-12 mb-2" />
+          <li key={skill.name} className="flex items-center space-x-2">
+            <img src={skill.img} alt={skill.name} className="w-12 h-12" />
             <span>{skill.name}</span>
           </li>
         ))}
