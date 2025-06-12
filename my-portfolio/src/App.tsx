@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function Section({ id, title, children, className = '' }: {
+  id: string;
+  title: string;
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <section id={id} className={`min-h-screen flex flex-col justify-center items-center px-4 ${className}`}>
+      <h2 className="text-3xl font-bold mb-4">{title}</h2>
+      <div className="max-w-2xl text-center text-lg text-gray-700">{children}</div>
+    </section>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="font-sans">
+      <Section id="about" title="About Me" className="bg-gray-50">
+        <p>Hello! I'm an engineer passionate about building applications.</p>
+      </Section>
+      <Section id="experience" title="Experience">
+        <p>I have worked on several projects using modern web technologies.</p>
+      </Section>
+      <Section id="skill" title="Skill" className="bg-gray-50">
+        <p>JavaScript, TypeScript, React, and more.</p>
+      </Section>
+      <Section id="contact" title="Contact">
+        <p>Feel free to reach me at <a href="mailto:example@example.com" className="text-blue-600 underline">example@example.com</a>.</p>
+      </Section>
+    </div>
+  );
+}
