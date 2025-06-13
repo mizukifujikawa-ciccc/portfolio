@@ -1,28 +1,44 @@
 import { useState } from "react";
 
-export default function Experience() {
+export default function Experience({ darkMode }: { darkMode: boolean }) {
   return (
-    <main className="bg-background min-h-screen px-4 py-12 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-primary mb-6">Experience</h1>
+    <main
+      className={`min-h-screen px-4 py-12 max-w-4xl mx-auto transition-colors duration-300 ${
+        darkMode ? 'bg-gray-950 text-gray-300' : 'bg-white text-black'
+      }`}
+    >
+      <h1 className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}>
+        Experience
+      </h1>
       <div className="space-y-8">
         {experiences.map((exp) => (
-          <ExperienceCard key={exp.company} exp={exp} />
+          <ExperienceCard key={exp.company} exp={exp} darkMode={darkMode} />
         ))}
       </div>
     </main>
   );
 }
 
-function ExperienceCard({ exp }: { exp: ExperienceType }) {
+function ExperienceCard({
+  exp,
+  darkMode,
+}: {
+  exp: ExperienceType;
+  darkMode: boolean;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const displayedTasks = isExpanded ? exp.tasks : exp.tasks.slice(0, 3);
 
   return (
-    <div className="bg-white rounded shadow p-6">
-      <h2 className="text-xl font-semibold text-text">{exp.title} @ {exp.company}</h2>
-      <p className="text-sm text-text mb-2">{exp.period} · {exp.location}</p>
-      <ul className="list-disc pl-5 space-y-2 text-text mb-4">
+    <div
+      className={`rounded shadow p-6 transition-colors duration-300 ${
+        darkMode ? 'bg-gray-800 text-gray-200' : 'bg-white text-black'
+      }`}
+    >
+      <h2 className="text-xl font-semibold">{exp.title} @ {exp.company}</h2>
+      <p className="text-sm mb-2">{exp.period} · {exp.location}</p>
+      <ul className="list-disc pl-5 space-y-2 mb-4">
         {displayedTasks.map((task, index) => (
           <li key={index}>{task}</li>
         ))}
@@ -30,7 +46,9 @@ function ExperienceCard({ exp }: { exp: ExperienceType }) {
       {exp.tasks.length > 3 && (
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="text-primary font-medium hover:underline focus:outline-none"
+          className={`font-medium hover:underline focus:outline-none ${
+            darkMode ? 'text-accent' : 'text-primary'
+          }`}
         >
           {isExpanded ? "See less" : "See more"}
         </button>
