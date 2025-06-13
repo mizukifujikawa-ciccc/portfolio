@@ -2,19 +2,28 @@ export default function Skills() {
     return (
       <main className="bg-background min-h-screen px-4 py-12 max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-primary mb-6">Skills</h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-center">
-          <div className="bg-white rounded shadow p-4 text-text">Java</div>
-          <div className="bg-white rounded shadow p-4 text-text">Spring Boot</div>
-          <div className="bg-white rounded shadow p-4 text-text">Node.js</div>
-          <div className="bg-white rounded shadow p-4 text-text">PostgreSQL</div>
-          <div className="bg-white rounded shadow p-4 text-text">React.js</div>
-          <div className="bg-white rounded shadow p-4 text-text">AWS</div>
-          <div className="bg-white rounded shadow p-4 text-text">TypeScript</div>
-          <div className="bg-white rounded shadow p-4 text-text">Git</div>
-          <div className="bg-white rounded shadow p-4 text-text">REST APIs</div>
-          <div className="bg-white rounded shadow p-4 text-text">Agile Methodologies</div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
+          {skills.map((skill) => (
+            <div key={skill.name} className="bg-white rounded shadow p-4 flex items-center space-x-3 text-text transition hover:shadow-lg hover:bg-gray-100">
+              <img src={skill.icon} alt={skill.name} className="w-8 h-8 object-contain rounded" />
+              <span>{skill.name}</span>
+            </div>
+          ))}
         </div>
       </main>
     );
   }
+  
+  const skills = [
+    { name: "Java", icon: "/images/skills/java.png" },
+    { name: "Spring Boot", icon: "/images/skills/springboot.png" },
+    { name: "PHP", icon: "/images/skills/php.png" },
+    { name: "Node.js", icon: "/images/skills/nodejs.png" },
+    { name: "PostgreSQL", icon: "/images/skills/postgresql.png" },
+    { name: "MySQL", icon: "/images/skills/mysql.png" },
+    { name: "React.js", icon: "/images/skills/react.png" },
+    { name: "AWS", icon: "/images/skills/aws.png" },
+    { name: "TypeScript", icon: "/images/skills/typescript.png" },
+    { name: "Git", icon: "/images/skills/git.png" },
+  ];
   

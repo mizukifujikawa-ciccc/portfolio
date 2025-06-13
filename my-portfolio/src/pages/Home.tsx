@@ -7,8 +7,8 @@ export default function Home() {
         <p className="text-text text-lg mb-8 max-w-xl">
           Software Engineer in Vancouver specializing in Java backend systems with Spring Boot, RxJava, Vue.js, and MySQL.
         </p>
-        <a href="/contact" className="bg-primary text-white px-6 py-3 rounded shadow hover:bg-blue-600 transition">
-          Let's Connect
+        <a href="/contact" className="bg-blue-600 text-white px-6 py-3 rounded shadow hover:bg-blue-700 transition">
+            Let's Connect
         </a>
       </main>
     );
