@@ -1,9 +1,9 @@
 export default function About({ darkMode }: { darkMode: boolean }) {
     return (
       <main
-        className={`min-h-screen px-4 py-12 max-w-4xl mx-auto transition-colors duration-300 ${
-          darkMode ? 'bg-gray-950 text-gray-300' : 'bg-white text-black'
-        }`}
+      className={`min-h-screen px-4 py-12 max-w-4xl mx-auto transition-colors duration-300 ${
+        darkMode ? "bg-gray-950 text-gray-300" : "bg-white text-black"
+      }`}
       >
         <h1 className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}>
           About Me
@@ -15,7 +15,39 @@ export default function About({ darkMode }: { darkMode: boolean }) {
           <br /><br />
           I enjoy writing clean, maintainable code and applying thoughtful design patterns. I also mentor junior engineers and guide teams toward best practices.
         </p>
+        <h2 className="text-2xl font-semibold mb-4 mt-12">Featured Projects</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {projects.map((project) => (
+                <div
+                    key={project.title}
+                    className={`rounded shadow overflow-hidden transition ${
+                    darkMode ? "bg-gray-800" : "bg-white"
+                    }`}
+                >
+                    <img
+                    src="https://placehold.co/400"
+                    alt={project.title}
+                    className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                    <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+                    <p className="text-sm">{project.description}</p>
+                    </div>
+                </div>
+                ))}
+            </div>
       </main>
     );
   }
-  
+  const projects = [
+    {
+      title: "E-commerce Platform",
+      description: "Built a scalable backend using Java Spring Boot and PostgreSQL. Integrated Stripe for payments.",
+      image: "/images/projects/ecommerce.png",
+    },
+    {
+      title: "AI Posture Recognition",
+      description: "Developed real-time posture detection using Python and integrated video streaming over WebRTC.",
+      image: "/images/projects/ai-posture.png",
+    },
+  ];
