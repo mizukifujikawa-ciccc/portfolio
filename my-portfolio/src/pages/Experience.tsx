@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Experience({ darkMode }: { darkMode: boolean }) {
   return (
@@ -7,14 +8,24 @@ export default function Experience({ darkMode }: { darkMode: boolean }) {
         darkMode ? 'bg-gray-950 text-gray-300' : 'bg-white text-black'
       }`}
     >
-      <h1 className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}>
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}
+      >
         Experience
-      </h1>
-      <div className="space-y-8">
+      </motion.h1>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="space-y-8"
+      >
         {experiences.map((exp) => (
           <ExperienceCard key={exp.company} exp={exp} darkMode={darkMode} />
         ))}
-      </div>
+      </motion.div>
     </main>
   );
 }

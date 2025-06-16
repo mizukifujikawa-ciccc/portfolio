@@ -7,6 +7,7 @@ import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import { useEffect, useState } from "react";
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <Router>
+      <Toaster position="top-center" reverseOrder={false} />
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <Routes>
       <Route path="/" element={<Home darkMode={darkMode} />} />

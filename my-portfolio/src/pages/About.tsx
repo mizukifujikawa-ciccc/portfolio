@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function About({ darkMode }: { darkMode: boolean }) {
     return (
       <main
@@ -5,17 +7,29 @@ export default function About({ darkMode }: { darkMode: boolean }) {
         darkMode ? "bg-gray-950 text-gray-300" : "bg-white text-black"
       }`}
       >
-        <h1 className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}>
+        <motion.h1 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}>
           About Me
-        </h1>
-        <p className="text-lg leading-relaxed space-y-4">
+        </motion.h1>
+        <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-lg leading-relaxed space-y-4">
           I'm a Software Engineer based in Vancouver, Canada, with 5+ years of experience designing backend systems.
           <br /><br />
           My expertise includes building REST APIs and microservices using Java, Spring Boot, and RxJava, as well as frontend skills with Vue.js and database management in MySQL/PostgreSQL.
           <br /><br />
           I enjoy writing clean, maintainable code and applying thoughtful design patterns. I also mentor junior engineers and guide teams toward best practices.
-        </p>
-        <h2 className="text-2xl font-semibold mb-4 mt-12">Featured Projects</h2>
+        </motion.p>
+        <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}>
+            <h2 className="text-2xl font-semibold mb-4 mt-12">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {projects.map((project) => (
                 <div
@@ -36,6 +50,7 @@ export default function About({ darkMode }: { darkMode: boolean }) {
                 </div>
                 ))}
             </div>
+        </motion.div>
       </main>
     );
   }

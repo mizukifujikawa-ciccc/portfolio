@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export default function Skills({ darkMode }: { darkMode: boolean }) {
     return (
       <main
@@ -5,10 +7,20 @@ export default function Skills({ darkMode }: { darkMode: boolean }) {
           darkMode ? 'bg-gray-950 text-gray-300' : 'bg-white text-black'
         }`}
       >
-        <h1 className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}>
+        <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`text-4xl font-bold mb-6 ${darkMode ? 'text-accent' : 'text-primary'}`}
+        >
           Skills
-        </h1>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-left">
+        </motion.h1>
+        <motion.div
+            className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-left"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+        >
           {skills.map((skill) => (
             <div
               key={skill.name}
@@ -24,7 +36,7 @@ export default function Skills({ darkMode }: { darkMode: boolean }) {
               <span>{skill.name}</span>
             </div>
           ))}
-        </div>
+        </motion.div>
       </main>
     );
   }
